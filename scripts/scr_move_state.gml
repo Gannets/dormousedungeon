@@ -1,33 +1,45 @@
 ///scr_move_state
 scr_get_input()
 
-// move right
-if (right_key) {
-    phy_position_x += spd;
-    sprite_index = spr_player_right;
-    image_speed = .2;
-}
-//move left
-if (left_key) {
-    phy_position_x -= spd;
-    sprite_index = spr_player_left;
-    image_speed = .2;
-}
-//move up
-if (up_key) {
-    phy_position_y -= spd;
-    sprite_index = spr_player_up;
-    image_speed = .2;
-}
-//move down
-if (down_key) {
-    phy_position_y += spd;
-    sprite_index = spr_player_down;
-    image_speed = .2;
+if (dash_key) { //change state when dash button is pressed
+    state = scr_dash_state;
+    alarm[0] = room_speed/7; //length of dash
 }
 
-//stop animating
-if (!down_key and !up_key and !left_key and !right_key) {
-    image_speed = 0;
-    image_index = 0;
+//get direction
+dir = point_direction(0,0,xaxis,yaxis);
+
+//get length
+if (xaxis == 0 && yaxis == 0) {
+    len = 0;
+} else {
+    len = spd;
 }
+
+//get horizontal and vertical speed
+hspd = lengthdir_x(len,dir);
+vspd = lengthdir_y(len,dir);
+
+//move
+phy_position_x += hspd;
+phy_position_y += vspd;
+
+//sprite control - stand still if not moving
+image_speed = .2;
+if (len == 0) image_index = 0;
+
+//vertical sprite - direction sprite if moving
+if (vspd > 0) {
+    sprite_index = spr_player_down;
+} else if (vspd < 0) {
+    sprite_index = spr_player_up;
+}
+
+//horizontal sprite - direction sprite if moving
+if (hspd > 0) {
+    sprite_index = spr_player_right;
+} else if (hspd < 0) {
+    sprite_index = spr_player_left;
+}
+
+
