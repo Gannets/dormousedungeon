@@ -62,7 +62,7 @@ script_execute(state)
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_chest_dummy">
+    <event eventtype="4" ename="obj_block">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -85,7 +85,7 @@ script_execute(state)
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_block">
+    <event eventtype="4" ename="obj_chest_dummy">
       <action>
         <libid>1</libid>
         <id>603</id>
