@@ -11,7 +11,9 @@
     <sprite>sprites\spr_equip_sheet</sprite>
     <sprite>sprites\spr_tile_blank</sprite>
     <sprite>sprites\spr_tile</sprite>
+    <sprite>sprites\spr_expr</sprite>
     <sprite>sprites\spr_damage</sprite>
+    <sprite>sprites\spr_door</sprite>
     <sprites name="chests">
       <sprite>sprites\spr_chest_wood_empty</sprite>
       <sprite>sprites\spr_chest_wood_closed</sprite>
@@ -44,12 +46,29 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\scr_get_input.gml</script>
-    <script>scripts\scr_move_state.gml</script>
-    <script>scripts\scr_dash_state.gml</script>
-    <script>scripts\scr_attack_state.gml</script>
+    <scripts name="player states">
+      <script>scripts\scr_move_state.gml</script>
+      <script>scripts\scr_dash_state.gml</script>
+      <script>scripts\scr_attack_state.gml</script>
+    </scripts>
+    <scripts name="helper scripts">
+      <script>scripts\scr_get_face.gml</script>
+      <script>scripts\scr_get_input.gml</script>
+    </scripts>
+    <scripts name="enemy states">
+      <script>scripts\scr_enemy_idle_state.gml</script>
+      <script>scripts\scr_enemy_stall_state.gml</script>
+      <script>scripts\scr_enemy_wander_state.gml</script>
+      <script>scripts\scr_enemy_chase_state.gml</script>
+      <scripts name="enemy helper scripts">
+        <script>scripts\scr_enemy_movement.gml</script>
+        <script>scripts\scr_enemy_choose_next_state.gml</script>
+        <script>scripts\scr_check_for_player.gml</script>
+      </scripts>
+    </scripts>
   </scripts>
   <objects name="objects">
+    <object>objects\obj_player_stats</object>
     <object>objects\obj_lifeform_parent</object>
     <object>objects\obj_view</object>
     <object>objects\obj_player</object>
@@ -57,14 +76,17 @@
     <object>objects\obj_chest_dummy</object>
     <object>objects\obj_block</object>
     <object>objects\obj_dash_effect</object>
+    <object>objects\obj_expr</object>
     <object>objects\obj_damage</object>
     <objects name="UNUSED">
       <object>objects\UNUSED_obj_resolution_control</object>
       <object>objects\UNUSED_obj_player</object>
     </objects>
+    <object>objects\obj_door</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_1</room>
+    <room>rooms\rm_2</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

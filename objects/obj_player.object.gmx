@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>-10</depth>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <parentName>obj_lifeform_parent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -39,6 +39,7 @@ attacked = false;
 image_speed = 0;
 scr_get_input()
 state = scr_move_state;
+face = RIGHT;
 </string>
           </argument>
         </arguments>
@@ -86,9 +87,83 @@ state = scr_move_state;
           <argument>
             <kind>1</kind>
             <string>/// Move player in step event
-event_inherited();
+depth = -y;
 script_execute(state);
 
+//death check
+if (obj_player_stats.hp &lt;= 0) {
+    instance_destroy();
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_door">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// move through doors
+if (room_exists(other.new_room)) {
+    room_goto(other.new_room);
+    x = other.new_x;
+    y = other.new_y;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_expr">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// collect exp
+with (other) {
+    instance_destroy(); //del exp object
+}
+
+//levelling formula
+with (obj_player_stats) {
+    expr += 1; //add exp to player stats
+    if (expr &gt;= maxexpr) {
+        level += 1;
+        expr = expr-maxexpr; //keep any remaining exp after level up
+        maxexpr *= 2;
+        hp += 2;
+        maxhp += 2;
+        stamina += 2;
+        maxstamina += 2;
+        attack += 1;
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -116,6 +191,30 @@ if (state = scr_attack_state) {
     state = scr_move_state;
     attacked = false;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// set fixed rotation
+phy_fixed_rotation = true;
 </string>
           </argument>
         </arguments>
@@ -154,7 +253,7 @@ draw_self();
   <PhysicsObjectDensity>0.5</PhysicsObjectDensity>
   <PhysicsObjectRestitution>0.100000001490116</PhysicsObjectRestitution>
   <PhysicsObjectGroup>0</PhysicsObjectGroup>
-  <PhysicsObjectLinearDamping>0.5</PhysicsObjectLinearDamping>
+  <PhysicsObjectLinearDamping>0.75</PhysicsObjectLinearDamping>
   <PhysicsObjectAngularDamping>0.100000001490116</PhysicsObjectAngularDamping>
   <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>

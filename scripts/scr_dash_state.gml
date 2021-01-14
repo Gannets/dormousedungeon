@@ -1,4 +1,8 @@
 ///scr_dash_state
+if (len == 0) { //if we're not moving...
+    dir = face*90; // return actual direction
+}
+
 len = spd*4; //dash 4 times faster than move speed
 
 // get horizontal and vertical speed

@@ -1,9 +1,11 @@
 ///scr_move_state
 scr_get_input()
 
-if (dash_key) { //change state when dash button is pressed
+if (dash_key && obj_player_stats.stamina >= 5) { //change state when dash button is pressed
     state = scr_dash_state;
     alarm[0] = room_speed/7; //length of dash
+    obj_player_stats.stamina -= DASH_COST;
+    obj_player_stats.alarm[0] = room_speed;
 }
 
 if (attack_key) {
@@ -16,9 +18,10 @@ dir = point_direction(0,0,xaxis,yaxis);
 
 //get length
 if (xaxis == 0 && yaxis == 0) {
-    len = 0;
+    len = 0; // not moving
 } else {
-    len = spd;
+    len = spd; // moving
+    scr_get_face();
 }
 
 //get horizontal and vertical speed
@@ -29,22 +32,24 @@ vspd = lengthdir_y(len,dir);
 phy_position_x += hspd;
 phy_position_y += vspd;
 
-//sprite control - stand still if not moving
+//sprite control
+//stand still if not moving
 image_speed = .2;
 if (len == 0) image_index = 0;
 
-//vertical sprite - direction sprite if moving
-if (vspd > 0) {
-    sprite_index = spr_player_down;
-} else if (vspd < 0) {
-    sprite_index = spr_player_up;
-}
-
-//horizontal sprite - direction sprite if moving
-if (hspd > 0) {
-    sprite_index = spr_player_right;
-} else if (hspd < 0) {
-    sprite_index = spr_player_left;
+switch (face) {
+    case RIGHT:
+        sprite_index = spr_player_right;
+        break;
+    case LEFT:
+        sprite_index = spr_player_left;
+        break;
+    case UP:
+        sprite_index = spr_player_up;
+        break;
+    case DOWN:
+        sprite_index = spr_player_down;
+        break;
 }
 
 
