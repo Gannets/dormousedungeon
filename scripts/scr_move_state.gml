@@ -6,6 +6,11 @@ if (dash_key) { //change state when dash button is pressed
     alarm[0] = room_speed/7; //length of dash
 }
 
+if (attack_key) {
+    image_index = 0;
+    state = scr_attack_state;
+}
+
 //get direction
 dir = point_direction(0,0,xaxis,yaxis);
 

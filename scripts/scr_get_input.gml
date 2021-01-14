@@ -4,6 +4,7 @@ left_key = keyboard_check(vk_left);
 up_key = keyboard_check(vk_up);
 down_key = keyboard_check(vk_down);
 dash_key = keyboard_check_pressed(ord('C')); //keyboard_pressed triggers once on press, keyboard_check is continuous
+attack_key = keyboard_check_pressed(ord('X'));
 
 //get axis
 xaxis = (right_key - left_key); 
@@ -15,6 +16,7 @@ if (gamepad_is_connected(0)) {
     xaxis = gamepad_axis_value(0,gp_axislh);
     yaxis = gamepad_axis_value(0,gp_axislv);
     dash_key = gamepad_button_check_pressed(0,gp_face1);
+    attack_key = gamepad_button_check_pressed(0,gp_face3);
 }
 
 
