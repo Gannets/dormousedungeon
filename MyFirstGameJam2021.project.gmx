@@ -10,6 +10,7 @@
     <sprite>sprites\spr_enemy_beetle</sprite>
     <sprite>sprites\spr_equip_sheet</sprite>
     <sprite>sprites\spr_tile_blank</sprite>
+    <sprite>sprites\spr_tile_dark</sprite>
     <sprite>sprites\spr_tile</sprite>
     <sprite>sprites\spr_expr</sprite>
     <sprite>sprites\spr_damage</sprite>
@@ -39,10 +40,13 @@
         <sprite>sprites\spr_player_attack_down</sprite>
       </sprites>
     </sprites>
+    <sprite>sprites\spr_crate</sprite>
+    <sprite>sprites\spr_barrel</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bck_turf</background>
     <background>background\bg_tile_blank</background>
+    <background>background\bg_turf_castle_tiles</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -70,10 +74,13 @@
   <objects name="objects">
     <object>objects\obj_player_stats</object>
     <object>objects\obj_lifeform_parent</object>
+    <object>objects\obj_object_parent</object>
     <object>objects\obj_view</object>
     <object>objects\obj_player</object>
     <object>objects\obj_enemy_beetle</object>
     <object>objects\obj_chest_dummy</object>
+    <object>objects\obj_crate</object>
+    <object>objects\obj_barrel</object>
     <object>objects\obj_block</object>
     <object>objects\obj_dash_effect</object>
     <object>objects\obj_expr</object>
@@ -87,6 +94,7 @@
   <rooms name="rooms">
     <room>rooms\rm_1</room>
     <room>rooms\rm_2</room>
+    <room>rooms\rm_3</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
