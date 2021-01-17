@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>/// init dash effect
+draw_set_colour(c_white);
 image_alpha = .5;
 </string>
           </argument>

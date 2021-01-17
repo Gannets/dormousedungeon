@@ -8,24 +8,14 @@
   <sprites name="sprites">
     <sprite>sprites\spr_player_mouse</sprite>
     <sprite>sprites\spr_enemy_beetle</sprite>
-    <sprite>sprites\spr_equip_sheet</sprite>
-    <sprite>sprites\spr_tile_blank</sprite>
-    <sprite>sprites\spr_tile_dark</sprite>
-    <sprite>sprites\spr_tile</sprite>
-    <sprite>sprites\spr_expr</sprite>
-    <sprite>sprites\spr_damage</sprite>
-    <sprite>sprites\spr_door</sprite>
-    <sprites name="chests">
-      <sprite>sprites\spr_chest_wood_empty</sprite>
-      <sprite>sprites\spr_chest_wood_closed</sprite>
-      <sprite>sprites\spr_chest_wood_loot</sprite>
-      <sprite>sprites\spr_chest_metal_open</sprite>
-      <sprite>sprites\spr_chest_metal_closed</sprite>
-      <sprite>sprites\spr_chest_metal_loot</sprite>
-    </sprites>
-    <sprites name="keys">
-      <sprite>sprites\spr_key_silver</sprite>
-      <sprite>sprites\spr_key_bronze</sprite>
+    <sprites name="enemies">
+      <sprite>sprites\spr_enemies</sprite>
+      <sprites name="ubeetle">
+        <sprite>sprites\spr_ubeetle_green</sprite>
+        <sprite>sprites\spr_ubeetle_yellow</sprite>
+        <sprite>sprites\spr_ubeetle_blue</sprite>
+        <sprite>sprites\spr_ubeetle_red</sprite>
+      </sprites>
     </sprites>
     <sprites name="player">
       <sprite>sprites\spr_player_down</sprite>
@@ -40,13 +30,41 @@
         <sprite>sprites\spr_player_attack_down</sprite>
       </sprites>
     </sprites>
-    <sprite>sprites\spr_crate</sprite>
-    <sprite>sprites\spr_barrel</sprite>
+    <sprites name="room_objects">
+      <sprites name="chests">
+        <sprite>sprites\spr_chest_wood_empty</sprite>
+        <sprite>sprites\spr_chest_wood_closed</sprite>
+        <sprite>sprites\spr_chest_wood_loot</sprite>
+        <sprite>sprites\spr_chest_metal_open</sprite>
+        <sprite>sprites\spr_chest_metal_closed</sprite>
+        <sprite>sprites\spr_chest_metal_loot</sprite>
+      </sprites>
+      <sprites name="keys">
+        <sprite>sprites\spr_key_silver</sprite>
+        <sprite>sprites\spr_key_bronze</sprite>
+      </sprites>
+      <sprite>sprites\spr_barrel</sprite>
+      <sprite>sprites\spr_crate</sprite>
+      <sprite>sprites\spr_door</sprite>
+    </sprites>
+    <sprites name="misc">
+      <sprite>sprites\spr_tile_blank</sprite>
+      <sprite>sprites\spr_equip_sheet</sprite>
+      <sprite>sprites\spr_tile</sprite>
+      <sprite>sprites\spr_health</sprite>
+      <sprite>sprites\spr_expr</sprite>
+      <sprite>sprites\spr_damage</sprite>
+      <sprite>sprites\spr_tile_dark</sprite>
+      <sprite>sprites\spr_debris</sprite>
+    </sprites>
+    <sprite>sprites\sprite35</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bck_turf</background>
     <background>background\bg_tile_blank</background>
     <background>background\bg_turf_castle_tiles</background>
+    <background>background\bg_turf_castle_tiles_2</background>
+    <background>background\bg_blue_background_colour</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -58,6 +76,7 @@
     <scripts name="helper scripts">
       <script>scripts\scr_get_face.gml</script>
       <script>scripts\scr_get_input.gml</script>
+      <script>scripts\scr_chance.gml</script>
     </scripts>
     <scripts name="enemy states">
       <script>scripts\scr_enemy_idle_state.gml</script>
@@ -72,29 +91,42 @@
     </scripts>
   </scripts>
   <objects name="objects">
-    <object>objects\obj_player_stats</object>
-    <object>objects\obj_lifeform_parent</object>
-    <object>objects\obj_object_parent</object>
-    <object>objects\obj_view</object>
-    <object>objects\obj_player</object>
-    <object>objects\obj_enemy_beetle</object>
-    <object>objects\obj_chest_dummy</object>
-    <object>objects\obj_crate</object>
-    <object>objects\obj_barrel</object>
-    <object>objects\obj_block</object>
-    <object>objects\obj_dash_effect</object>
-    <object>objects\obj_expr</object>
-    <object>objects\obj_damage</object>
+    <objects name="intangible">
+      <object>objects\obj_input</object>
+      <object>objects\obj_player_stats</object>
+      <object>objects\obj_lifeform_parent</object>
+      <object>objects\obj_object_parent</object>
+      <object>objects\obj_view</object>
+      <object>objects\obj_pause_menu</object>
+      <object>objects\obj_dash_effect</object>
+      <object>objects\obj_expr</object>
+      <object>objects\obj_health</object>
+      <object>objects\obj_damage</object>
+    </objects>
+    <objects name="mobs">
+      <object>objects\obj_player</object>
+      <object>objects\obj_enemy_beetle</object>
+    </objects>
+    <objects name="room_objects">
+      <object>objects\obj_chest_dummy</object>
+      <object>objects\obj_door</object>
+      <object>objects\obj_barrel</object>
+      <object>objects\obj_crate</object>
+      <object>objects\obj_block</object>
+      <object>objects\obj_debris</object>
+    </objects>
     <objects name="UNUSED">
       <object>objects\UNUSED_obj_resolution_control</object>
       <object>objects\UNUSED_obj_player</object>
     </objects>
-    <object>objects\obj_door</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_1</room>
+    <room>rooms\room_palette</room>
+    <room>rooms\rm_4</room>
     <room>rooms\rm_2</room>
     <room>rooms\rm_3</room>
+    <room>rooms\rm_pause</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

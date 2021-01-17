@@ -145,7 +145,6 @@
     <instance objName="obj_block" x="480" y="336" name="inst_05D3E071" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_block" x="496" y="336" name="inst_7D6BE6B8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_block" x="512" y="336" name="inst_992C607D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_view" x="32" y="32" name="inst_2CFA8CEF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_block" x="624" y="0" name="inst_791EAB55" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_block" x="0" y="192" name="inst_C6CFB167" locked="0" code="" scaleX="15" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_chest_dummy" x="48" y="144" name="inst_09E72E47" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -156,8 +155,6 @@
     <instance objName="obj_enemy_beetle" x="32" y="160" name="inst_6499216D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_enemy_beetle" x="192" y="160" name="inst_EF4F6214" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_block" x="0" y="0" name="inst_89590B1E" locked="0" code="" scaleX="14" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_player_stats" x="48" y="32" name="inst_4629D078" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_player" x="112" y="48" name="inst_E51B97B2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_enemy_beetle" x="64" y="160" name="inst_5C511631" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_enemy_beetle" x="144" y="160" name="inst_36AFE9BB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_door" x="112" y="112" name="inst_81024A04" locked="0" code="new_room = rm_2;&#xA;new_x = 32;&#xA;new_y = 48;&#xA;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
